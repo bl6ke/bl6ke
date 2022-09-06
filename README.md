@@ -6,6 +6,7 @@
 * [![Java][Java.com]][Java-url]
 * [![JavaScript][JavaScript.com]][JavaScript-url]
 * [![React][React.js]][React-url]
+* [![Lua][Lua.org]][Lua-url]
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
@@ -13,5 +14,8 @@
 [JavaScript-url]: https://www.javascript.com/
 [Java.com]: https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white
 [Java-url]: https://www.java.com/en/
+[Lua.org]: https://img.shields.io/badge/lua-%232C2D72.svg?style=for-the-badge&logo=lua&logoColor=white
+[Lua-url]: https://lua.org/
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
