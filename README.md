@@ -7,6 +7,7 @@
 * [![JavaScript][JavaScript.com]][JavaScript-url]
 * [![React][React.js]][React-url]
 * [![Lua][Lua.org]][Lua-url]
+* [![C#][Csharp.com]][Csharp-url]
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
@@ -16,6 +17,9 @@
 [Java-url]: https://www.java.com/en/
 [Lua.org]: https://img.shields.io/badge/lua-%232C2D72.svg?style=for-the-badge&logo=lua&logoColor=white
 [Lua-url]: https://lua.org/
+[Csharp.com]: https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white
+[Csharp-url]: https//https://dotnet.microsoft.com/en-us/languages/csharp
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
