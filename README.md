@@ -3,8 +3,8 @@
 
 ### Building with
 
-* [![Java][Java][Java-url]
-* [![JavaScript][JavaScript][JavaScript-url]
+* [![Java][Java.js][Java-url]
+* [![JavaScript][JavaScript.js][JavaScript-url]
 * [![React][React.js]][React-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
