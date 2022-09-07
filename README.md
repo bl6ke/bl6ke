@@ -1,7 +1,7 @@
 <h1 align="center">blake/versal</h1>
 <h3 align="center">full stack FiveM & web developer</h3>
 
-### Building applications with
+### building applications with:
 
 - [![Java][Java.com]][Java-url]
 - [![JavaScript][JavaScript.com]][JavaScript-url]
