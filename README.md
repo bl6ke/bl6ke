@@ -1,14 +1,14 @@
 <h1 align="center">blake/versal</h1>
 <h3 align="center">full stack FiveM & web developer</h3>
 
-### Building with
+### Building applications with
 
-* [![Java][Java.com]][Java-url]
-* [![JavaScript][JavaScript.com]][JavaScript-url]
-* [![React][React.js]][React-url]
-* [![Node][Node.js]][Node-url]
-* [![Lua][Lua.org]][Lua-url]
-* [![C#][Csharp.com]][Csharp-url]
+- [![Java][Java.com]][Java-url]
+- [![JavaScript][JavaScript.com]][JavaScript-url]
+- [![React][React.js]][React-url]
+- [![Node][Node.js]][Node-url]
+- [![Lua][Lua.org]][Lua-url]
+- [![C#][Csharp.com]][Csharp-url]
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
