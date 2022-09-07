@@ -6,6 +6,7 @@
 * [![Java][Java.com]][Java-url]
 * [![JavaScript][JavaScript.com]][JavaScript-url]
 * [![React][React.js]][React-url]
+* [![Node][Node.js]][Node-url]
 * [![Lua][Lua.org]][Lua-url]
 * [![C#][Csharp.com]][Csharp-url]
 
@@ -19,7 +20,5 @@
 [Lua-url]: https://lua.org/
 [Csharp.com]: https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white
 [Csharp-url]: https//https://dotnet.microsoft.com/en-us/languages/csharp
-
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[Node.js]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
+[Node-url]: https://nodejs.org/en/
