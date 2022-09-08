@@ -3,9 +3,9 @@
 
 <h4 align="center">building applications with:</h4>
 
-[<h1 align="center">
-[![Java][Java.com]][Java-url] [![JavaScript][JavaScript.com]][JavaScript-url] [![React][React.js]][React-url] [![Node][Node.js]][Node-url] [![Lua][Lua.org]][Lua-url] [![C#][Csharp.com]][Csharp-url]
-  </h1>
+<div align="center">
+  <a href="">![Java][Java.com]][Java-url] [![JavaScript][JavaScript.com]][JavaScript-url] [![React][React.js]][React-url] [![Node][Node.js]][Node-url] [![Lua][Lua.org]][Lua-url] [![C#][Csharp.com]][Csharp-url]
+  </div>
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
