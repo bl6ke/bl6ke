@@ -3,7 +3,7 @@
 
 <h4 align="center">building applications with:</h4>
 
-<h1 align="center">
+[h1 align="center">
   [![Java][Java.com]][Java-url] [![JavaScript][JavaScript.com]][JavaScript-url] [![React][React.js]][React-url] [![Node][Node.js]][Node-url] [![Lua][Lua.org]][Lua-url] [![C#][Csharp.com]][Csharp-url]
   </h1>
 
