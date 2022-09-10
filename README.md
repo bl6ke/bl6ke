@@ -13,7 +13,7 @@
 
 <div align="center">
 
-  <a href="">[![VSC][VSC.com]][VSC-url] [![Ubuntu][Ubuntu.com]][Ubuntu-url] [![WSL][WSL.com]][WSL-url]
+  <a href="">[![VSC][VSC.com]][VSC-url] [![Ubuntu][Ubuntu.com]][Ubuntu-url] [![Linux][Linux.com]][Linux-url] [![WSL][WSL.com]][WSL-url]
   
    </div>
 
