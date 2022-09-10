@@ -17,6 +17,12 @@
   
    </div>
 
+<div align="center">
+  
+  <a href="">[![Github][Github.com]][Github-url] [![Git][Git.com]][Git-url] [![Docker][Docker.com]][Docker-url]</a>
+  
+  </div>
+  
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [JavaScript.com]: https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
@@ -37,3 +43,12 @@
 [Linux-url]: https://www.linux.org/
 [WSL.com]: https://img.shields.io/badge/-WSL-blueviolet?style=for-the-badge&logo=Ubuntu
 [WSL-url]: https://ubuntu.com/wsl
+[Github.com]: [https://github.com/](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+[Github-url]: https://github.com/
+[Git.com]: https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white
+[Git-url]: https://git-scm.com/
+[Docker.com]: https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white
+[Docker-url]: https://www.docker.com/
+
+  
+
