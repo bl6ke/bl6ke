@@ -9,11 +9,11 @@
   
   </div>
 
-<h4 align="center">building applications on:</h4>
+<h4 align="center">softwares and applications:</h4>
 
 <div align="center">
 
-  <a href="">[![VSC][VSC.com]][VSC-url] [![Ubuntu][Ubuntu.com]][Ubuntu-url] [![Linux][Linux.com]][Linux-url] [![WSL][WSL.com]][WSL-url]
+  <a href="">[![Ubuntu][Ubuntu.com]][Ubuntu-url] [![Linux][Linux.com]][Linux-url] [![VSC][VSC.com]][VSC-url]  [![WSL][WSL.com]][WSL-url]
   
    </div>
 
