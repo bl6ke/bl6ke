@@ -9,11 +9,11 @@
   
   </div>
 
-<h4 align="center">building applications with:</h4>
+<h4 align="center">building applications on:</h4>
 
 <div align="center">
 
-  <a href="">[![VSC][VSC.com]][VSC-url]</a>
+  <a href="">[![VSC][VSC.com]][VSC-url] [![Ubuntu][Ubuntu.com]][Ubuntu-url] [![WSL][WSL.com]][WSL-url]
   
    </div>
 
@@ -31,3 +31,9 @@
 [Node-url]: https://nodejs.org/en/
 [VSC.com]: https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white
 [VSC-url]: https://code.visualstudio.com/
+[Ubuntu.com]: https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white
+[Ubuntu-url]: https://ubuntu.com/
+[Linux.com]: https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black
+[Linux-url]: https://www.linux.org/
+[WSL.com]: https://img.shields.io/badge/-WSL-blueviolet?style=for-the-badge&logo=Ubuntu
+[WSL-url]: https://ubuntu.com/wsl
