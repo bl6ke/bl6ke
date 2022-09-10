@@ -13,7 +13,7 @@
 
 <div align="center">
 
-  <a href="">[![VSC][VSC.com][VSC-url]</a>
+  <a href="">[![VSC][VSC.com]][VSC-url]</a>
   
    </div>
 
