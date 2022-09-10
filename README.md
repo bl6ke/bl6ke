@@ -43,7 +43,7 @@
 [Linux-url]: https://www.linux.org/
 [WSL.com]: https://img.shields.io/badge/-WSL-blueviolet?style=for-the-badge&logo=Ubuntu
 [WSL-url]: https://ubuntu.com/wsl
-[Github.com]: https://img.shields.io/badge/github-black.svg?style=for-the-badge&logo=github&logoColor=white
+[Github.com]: https://img.shields.io/badge/github_desktop-blueviolet.svg?style=for-the-badge&logo=github&logoColor=white
 [Github-url]: https://desktop.github.com/
 [Git.com]: https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white
 [Git-url]: https://git-scm.com/
