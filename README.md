@@ -9,6 +9,14 @@
   
   </div>
 
+<h4 align="center">building applications with:</h4>
+
+<div align="center">
+
+  <a href="">[![VSC][VSC.com][VSC-url]</a>
+  
+   </div>
+
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [JavaScript.com]: https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
@@ -21,3 +29,5 @@
 [Csharp-url]: https//https://dotnet.microsoft.com/en-us/languages/csharp
 [Node.js]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
 [Node-url]: https://nodejs.org/en/
+[VSC.com]: https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white
+[VSC-url]: https://code.visualstudio.com/
