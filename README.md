@@ -13,13 +13,13 @@
 
 <div align="center">
 
-  <a href="">[![Ubuntu][Ubuntu.com]][Ubuntu-url] [![Linux][Linux.com]][Linux-url] [![VSC][VSC.com]][VSC-url]  [![WSL][WSL.com]][WSL-url]
+  <a href="">[![VSC][VSC.com]][VSC-url] [![Windows][Windows.com]][Windows-url]
   
    </div>
 
 <div align="center">
   
-  <a href="">[![Github][Github.com]][Github-url] [![Git][Git.com]][Git-url] [![Docker][Docker.com]][Docker-url]</a>
+  <a href="">[![Github][Github.com]][Github-url] [![Git][Git.com]][Git-url]</a>
   
   </div>
   
@@ -49,6 +49,8 @@
 [Git-url]: https://git-scm.com/
 [Docker.com]: https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white
 [Docker-url]: https://www.docker.com/
+[Windows.com]: https://img.shields.io/badge/Microsoft-0078D4?style=for-the-badge&logo=microsoft&logoColor=white
+[Windows-url]: https://www.microsoft.com/en-us/windows/?r=1
 
   
 
