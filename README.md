@@ -13,7 +13,7 @@
 
 <div align="center">
 
-  <a href="">[![VSC][VSC.com]][VSC-url] [![Windows][Windows.com]][Windows-url] [![Github][Github.com]][Github-url] [![Git][Git.com]][Git-url
+  <a href="">[![VSC][VSC.com]][VSC-url] [![Windows][Windows.com]][Windows-url] [![Github][Github.com]][Github-url] [![Git][Git.com]][Git-url]
   
    </div>
   
