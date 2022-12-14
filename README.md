@@ -13,15 +13,9 @@
 
 <div align="center">
 
-  <a href="">[![VSC][VSC.com]][VSC-url] [![Windows][Windows.com]][Windows-url]
+  <a href="">[![VSC][VSC.com]][VSC-url] [![Windows][Windows.com]][Windows-url] [![Github][Github.com]][Github-url] [![Git][Git.com]][Git-url
   
    </div>
-
-<div align="center">
-  
-  <a href="">[![Github][Github.com]][Github-url] [![Git][Git.com]][Git-url]</a>
-  
-  </div>
   
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
