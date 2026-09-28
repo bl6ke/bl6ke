@@ -1,13 +1,3 @@
-/*
- * COP 3502C - PA2: Recursion / Monster Lineup
- * main1.c - Base-case constraint checking.
- *
- * Generates every permutation of monster indices with the recursive
- * used[] technique and checks all constraints only once a permutation
- * is complete (at the base case). The first permutation that satisfies
- * every constraint is printed and the search stops.
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -26,23 +16,22 @@
 #define ELEMENT_BEFORE_ALL 6
 
 typedef struct {
-    char *name;                  /* dynamically allocated to fit the name */
-    char element[MAXLEN + 1];    /* statically allocated */
+    char *name;  /* dynamically allocated to fit the name */
+    char element[MAXLEN + 1];  /* statically allocated */
 } Monster;
 
 typedef struct {
     int type;
-    int a;                       /* monster index */
-    int b;                       /* second monster index, or 1-based position */
+    int a;
+    int b;  /* second monster index or 1-based position */
     char elemA[MAXLEN + 1];
     char elemB[MAXLEN + 1];
 } Constraint;
 
-/* The only two global arrays. */
+/* the only two global arrays */
 Monster monsters[MAXN];
 Constraint constraints[MAXC];
 
-/* Returns the slot of target in perm[idx..len-1], or -1 if it is not there. */
 int recursiveFindPosition(int perm[], int len, int target, int idx) {
     if (idx >= len)
         return -1;
@@ -51,7 +40,6 @@ int recursiveFindPosition(int perm[], int len, int target, int idx) {
     return recursiveFindPosition(perm, len, target, idx + 1);
 }
 
-/* Returns 1 if two neighbors in perm[idx-1..len-1] both have element elem. */
 int recursiveHasAdjacent(int perm[], int len, char elem[], int idx) {
     if (idx >= len)
         return 0;
@@ -61,11 +49,6 @@ int recursiveHasAdjacent(int perm[], int len, char elem[], int idx) {
     return recursiveHasAdjacent(perm, len, elem, idx + 1);
 }
 
-/*
- * Returns 1 if no monster with elemA appears after a monster with elemB,
- * scanning perm[idx..len-1]. seenB records whether an elemB monster has
- * already been seen earlier in the lineup.
- */
 int recursiveElementOrder(int perm[], int len, char elemA[], char elemB[],
                           int idx, int seenB) {
     if (idx >= len)
@@ -77,7 +60,6 @@ int recursiveElementOrder(int perm[], int len, char elemA[], char elemB[],
     return recursiveElementOrder(perm, len, elemA, elemB, idx + 1, seenB);
 }
 
-/* Returns 1 if the complete lineup perm satisfies constraint con. */
 int checkConstraint(int perm[], int n, Constraint *con) {
     int posA, posB;
 
@@ -104,7 +86,6 @@ int checkConstraint(int perm[], int n, Constraint *con) {
     return 0;
 }
 
-/* Returns 1 if the complete lineup satisfies constraints idx..numC-1. */
 int recursiveCheckConstraints(int perm[], int n, int numC, int idx) {
     if (idx >= numC)
         return 1;
@@ -113,7 +94,6 @@ int recursiveCheckConstraints(int perm[], int n, int numC, int idx) {
     return recursiveCheckConstraints(perm, n, numC, idx + 1);
 }
 
-/* Prints the monsters in perm[idx..n-1], one per line. */
 void recursivePrintLineup(int perm[], int n, int idx) {
     if (idx >= n)
         return;
@@ -121,7 +101,6 @@ void recursivePrintLineup(int perm[], int n, int idx) {
     recursivePrintLineup(perm, n, idx + 1);
 }
 
-/* Frees the names of monsters[0..idx]. */
 void recursiveFreeMonsters(int idx) {
     if (idx < 0)
         return;
@@ -130,14 +109,10 @@ void recursiveFreeMonsters(int idx) {
     recursiveFreeMonsters(idx - 1);
 }
 
-/*
- * Fills perm[k..n-1] with every unused monster index in turn. Constraints
- * are checked only when the permutation is complete. Returns 1 once a valid
- * lineup has been printed so the remaining search is skipped.
- */
 int permute(int perm[], int used[], int k, int n, int numC) {
     int found;
 
+    /* constraints are only checked once the lineup is complete */
     if (k == n) {
         if (recursiveCheckConstraints(perm, n, numC, 0)) {
             recursivePrintLineup(perm, n, 0);
@@ -159,7 +134,6 @@ int permute(int perm[], int used[], int k, int n, int numC) {
     return 0;
 }
 
-/* Reads one constraint from input into con. Returns 1 on success. */
 int readConstraint(Constraint *con) {
     char type[MAXTYPE];
 

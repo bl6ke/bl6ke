@@ -1,14 +1,3 @@
-/*
- * COP 3502C - PA2: Recursion / Monster Lineup
- * main2.c - Constraint checking and pruning.
- *
- * Uses the same recursive used[] permutation as main1.c, but checks
- * constraints while the lineup is being built. POSITION constraints are
- * checked before a monster is marked used, and every other constraint is
- * checked against the partial lineup before recursing, so dead branches are
- * abandoned immediately. The complete checker still runs at the base case.
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -27,23 +16,22 @@
 #define ELEMENT_BEFORE_ALL 6
 
 typedef struct {
-    char *name;                  /* dynamically allocated to fit the name */
-    char element[MAXLEN + 1];    /* statically allocated */
+    char *name;  /* dynamically allocated to fit the name */
+    char element[MAXLEN + 1];  /* statically allocated */
 } Monster;
 
 typedef struct {
     int type;
-    int a;                       /* monster index */
-    int b;                       /* second monster index, or 1-based position */
+    int a;
+    int b;  /* second monster index or 1-based position */
     char elemA[MAXLEN + 1];
     char elemB[MAXLEN + 1];
 } Constraint;
 
-/* The only two global arrays. */
+/* the only two global arrays */
 Monster monsters[MAXN];
 Constraint constraints[MAXC];
 
-/* Returns the slot of target in perm[idx..len-1], or -1 if it is not there. */
 int recursiveFindPosition(int perm[], int len, int target, int idx) {
     if (idx >= len)
         return -1;
@@ -52,7 +40,6 @@ int recursiveFindPosition(int perm[], int len, int target, int idx) {
     return recursiveFindPosition(perm, len, target, idx + 1);
 }
 
-/* Returns 1 if two neighbors in perm[idx-1..len-1] both have element elem. */
 int recursiveHasAdjacent(int perm[], int len, char elem[], int idx) {
     if (idx >= len)
         return 0;
@@ -62,11 +49,6 @@ int recursiveHasAdjacent(int perm[], int len, char elem[], int idx) {
     return recursiveHasAdjacent(perm, len, elem, idx + 1);
 }
 
-/*
- * Returns 1 if no monster with elemA appears after a monster with elemB,
- * scanning perm[idx..len-1]. seenB records whether an elemB monster has
- * already been seen earlier in the lineup.
- */
 int recursiveElementOrder(int perm[], int len, char elemA[], char elemB[],
                           int idx, int seenB) {
     if (idx >= len)
@@ -78,7 +60,6 @@ int recursiveElementOrder(int perm[], int len, char elemA[], char elemB[],
     return recursiveElementOrder(perm, len, elemA, elemB, idx + 1, seenB);
 }
 
-/* Returns 1 if the complete lineup perm satisfies constraint con. */
 int checkConstraint(int perm[], int n, Constraint *con) {
     int posA, posB;
 
@@ -105,7 +86,6 @@ int checkConstraint(int perm[], int n, Constraint *con) {
     return 0;
 }
 
-/* Returns 1 if the complete lineup satisfies constraints idx..numC-1. */
 int recursiveCheckConstraints(int perm[], int n, int numC, int idx) {
     if (idx >= numC)
         return 1;
@@ -114,7 +94,6 @@ int recursiveCheckConstraints(int perm[], int n, int numC, int idx) {
     return recursiveCheckConstraints(perm, n, numC, idx + 1);
 }
 
-/* Returns 1 if some monster in idx..n-1 is unused and has element elem. */
 int recursiveUnplacedHasElement(int used[], int n, char elem[], int idx) {
     if (idx >= n)
         return 0;
@@ -123,7 +102,6 @@ int recursiveUnplacedHasElement(int used[], int n, char elem[], int idx) {
     return recursiveUnplacedHasElement(used, n, elem, idx + 1);
 }
 
-/* Returns 1 if some monster in perm[idx..len-1] has element elem. */
 int recursivePlacedHasElement(int perm[], int len, char elem[], int idx) {
     if (idx >= len)
         return 0;
@@ -132,29 +110,23 @@ int recursivePlacedHasElement(int perm[], int len, char elem[], int idx) {
     return recursivePlacedHasElement(perm, len, elem, idx + 1);
 }
 
-/*
- * Returns 1 if the partial lineup perm[0..len-1] can still be extended to
- * a lineup that satisfies con. Only rejects prefixes that are already
- * impossible, so no valid lineup is ever pruned.
- */
 int partialConstraintOk(int perm[], int used[], int len, int n,
                         Constraint *con) {
     int posA, posB;
 
     switch (con->type) {
     case BEFORE:
-        /* b is placed but a is not, so a would land after b. */
+        /* b placed without a means a would land after b */
         return !(used[con->b] && !used[con->a]);
     case IMMEDIATELY_BEFORE:
         posA = recursiveFindPosition(perm, len, con->a, 0);
         posB = recursiveFindPosition(perm, len, con->b, 0);
-        /* b is placed, so the slot right before it must hold a. */
+        /* b placed means the slot before it must hold a */
         if (posB != -1 && (posB == 0 || perm[posB - 1] != con->a))
             return 0;
-        /* a is placed and the slot right after it is filled, so it must be b. */
+        /* a placed with its next slot filled means that slot must hold b */
         if (posA != -1 && posA + 1 < len && perm[posA + 1] != con->b)
             return 0;
-        /* a is in the last slot, so nothing can follow it. */
         if (posA == n - 1)
             return 0;
         return 1;
@@ -169,12 +141,12 @@ int partialConstraintOk(int perm[], int used[], int len, int n,
     case LAST_ELEMENT:
         if (len == n)
             return strcmp(monsters[perm[n - 1]].element, con->elemA) == 0;
-        /* Some unplaced monster must still be able to go last. */
+        /* some unplaced monster must still be able to go last */
         return recursiveUnplacedHasElement(used, n, con->elemA, 0);
     case NO_ADJACENT_ELEMENT:
         return !recursiveHasAdjacent(perm, len, con->elemA, 1);
     case ELEMENT_BEFORE_ALL:
-        /* A placed elemB monster forces every elemA monster to be placed. */
+        /* once an elemB monster is placed every elemA monster must already be placed */
         if (recursivePlacedHasElement(perm, len, con->elemB, 0) &&
             recursiveUnplacedHasElement(used, n, con->elemA, 0))
             return 0;
@@ -183,7 +155,6 @@ int partialConstraintOk(int perm[], int used[], int len, int n,
     return 0;
 }
 
-/* Returns 1 if the partial lineup is still possible for constraints idx..numC-1. */
 int recursiveCheckPartial(int perm[], int used[], int len, int n, int numC,
                           int idx) {
     if (idx >= numC)
@@ -193,25 +164,18 @@ int recursiveCheckPartial(int perm[], int used[], int len, int n, int numC,
     return recursiveCheckPartial(perm, used, len, n, numC, idx + 1);
 }
 
-/*
- * Returns 1 if no POSITION constraint among idx..numC-1 forbids placing
- * monster m at 0-based slot k.
- */
 int recursiveCanPlace(int m, int k, int numC, int idx) {
     if (idx >= numC)
         return 1;
     if (constraints[idx].type == POSITION) {
-        /* m is pinned to a different slot. */
         if (constraints[idx].a == m && constraints[idx].b - 1 != k)
             return 0;
-        /* slot k is reserved for a different monster. */
         if (constraints[idx].a != m && constraints[idx].b - 1 == k)
             return 0;
     }
     return recursiveCanPlace(m, k, numC, idx + 1);
 }
 
-/* Prints the monsters in perm[idx..n-1], one per line. */
 void recursivePrintLineup(int perm[], int n, int idx) {
     if (idx >= n)
         return;
@@ -219,7 +183,6 @@ void recursivePrintLineup(int perm[], int n, int idx) {
     recursivePrintLineup(perm, n, idx + 1);
 }
 
-/* Frees the names of monsters[0..idx]. */
 void recursiveFreeMonsters(int idx) {
     if (idx < 0)
         return;
@@ -228,12 +191,6 @@ void recursiveFreeMonsters(int idx) {
     recursiveFreeMonsters(idx - 1);
 }
 
-/*
- * Fills perm[k..n-1] with every unused monster index in turn, backtracking
- * as soon as the partial lineup can no longer satisfy every constraint.
- * The complete checker still runs at the base case. Returns 1 once a valid
- * lineup has been printed so the remaining search is skipped.
- */
 int permute(int perm[], int used[], int k, int n, int numC) {
     int found;
 
@@ -247,13 +204,14 @@ int permute(int perm[], int used[], int k, int n, int numC) {
 
     for (int i = 0; i < n; i++) {
         if (!used[i]) {
-            /* Reject a POSITION conflict before marking i as used. */
+            /* reject a POSITION conflict before marking i as used */
             if (!recursiveCanPlace(i, k, numC, 0))
                 continue;
 
             used[i] = 1;
             perm[k] = i;
             found = 0;
+            /* only recurse if the partial lineup can still work */
             if (recursiveCheckPartial(perm, used, k + 1, n, numC, 0))
                 found = permute(perm, used, k + 1, n, numC);
             used[i] = 0;
@@ -264,7 +222,6 @@ int permute(int perm[], int used[], int k, int n, int numC) {
     return 0;
 }
 
-/* Reads one constraint from input into con. Returns 1 on success. */
 int readConstraint(Constraint *con) {
     char type[MAXTYPE];
 
