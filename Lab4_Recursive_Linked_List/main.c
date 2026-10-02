@@ -1,24 +1,9 @@
+#include "main.h"
 //This code shows performing various operations on linked list recursively.
 // insert, delete, free, display, copy
 #include<stdio.h>
 #include <stdlib.h>
 #include	"leak_detector_c.h"
-
-struct node {
-     int data;
-     struct node  *next;
-};
-
-/******functions you need to complete RECURSIVELY******/
-
-/* together in the lab */
-struct node* insert(struct node* list,int d );
-struct node* del(struct node* list,int d );
-void copy ( struct node *q, struct node **s );
-
-/* by yourself */
-void print(struct node *list);
-void freeList(struct node* list);
 
 
 int main( ) {
