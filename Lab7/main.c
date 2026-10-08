@@ -1,19 +1,10 @@
-/*
- * CS1 Lab 7 - Recursion with Linked List
- *
- * Sorted linked list insertion and deletion, plus print, free and copy,
- * all implemented recursively.
- */
+// CS1 Lab 7 - Recursion with Linked List
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-/* ---------------- Memory leak detector ----------------
- * Every malloc/free in this file goes through xmalloc/xfree, which keep a
- * list of the blocks still allocated. At exit, report_mem_leak() writes any
- * block that was never freed to leak_info.txt.
- */
+// Memory leak detector, writes unfreed blocks to leak_info.txt at exit
 
 #define LEAK_FILE_NAME_LENGTH 256
 #define LEAK_OUTPUT_FILE      "leak_info.txt"
@@ -93,8 +84,6 @@ void report_mem_leak(void)
 #define malloc(size)  xmalloc(size, __FILE__, __LINE__)
 #define free(mem_ref) xfree(mem_ref)
 
-/* ------------------------------------------------------ */
-
 struct node {
     int data;
     struct node *next;
@@ -106,10 +95,9 @@ void print(struct node *list);
 void freeList(struct node* list);
 void copy(struct node *q, struct node **s);
 
-// Inserts d into the sorted list and returns the (possibly new) head.
+// Inserts d in sorted order
 struct node* insert(struct node* list, int d)
 {
-    // Empty list or d belongs before the current node: create a new node here.
     if (list == NULL || d < list->data)
     {
         struct node *temp = (struct node*)malloc(sizeof(struct node));
@@ -118,19 +106,16 @@ struct node* insert(struct node* list, int d)
         return temp;
     }
 
-    // Otherwise d goes somewhere after this node.
     list->next = insert(list->next, d);
     return list;
 }
 
-// Deletes the first occurrence of d from the list and returns the new head.
+// Deletes the first node containing d
 struct node* del(struct node* list, int d)
 {
-    // Reached the end without finding d.
     if (list == NULL)
         return NULL;
 
-    // Found it: unlink this node and free it.
     if (list->data == d)
     {
         struct node *rest = list->next;
@@ -142,7 +127,6 @@ struct node* del(struct node* list, int d)
     return list;
 }
 
-// Prints the list in the format ->a->b->c
 void print(struct node *list)
 {
     if (list == NULL)
@@ -152,7 +136,6 @@ void print(struct node *list)
     print(list->next);
 }
 
-// Frees every node of the list.
 void freeList(struct node* list)
 {
     if (list == NULL)
@@ -162,7 +145,7 @@ void freeList(struct node* list)
     free(list);
 }
 
-// Makes a copy of list q and stores its head in *s.
+// Copies list q into *s
 void copy(struct node *q, struct node **s)
 {
     if (q == NULL)
@@ -178,53 +161,43 @@ void copy(struct node *q, struct node **s)
 
 int main( ) {
 
-    atexit(report_mem_leak); // memory leak detector
+    atexit(report_mem_leak);
 
     int number = 0, choice=0;
     struct node *pList=NULL;
     struct node *nList = NULL;
 
-    // Let the user add values until they enter -1.
     while(choice!= 4)
     {
-        // Get the operation.
         printf("\nDo you want to (1)insert, (2)delete, (3)Copy (4)quit.\n");
         scanf("%d", &choice);
 
         printf("Your choice is %d\n", choice);
 
-        // Execute the operation.
         if (choice == 1)
         {
-            // Get the number.
             printf("Enter the value to insert\n");
             scanf("%d", &number);
             pList = insert(pList, number);
-            // Look at the list.
             printf("Items in linked list: ");
             print(pList);
-            //printf("\n");
         }
         else if (choice == 2)
-        {   // Get the number.
+        {
             printf("Enter the value to delete.\n");
             scanf("%d", &number);
             pList = del(pList, number);
-            // Look at the list.
             printf("Items in linked list: ");
             print(pList);
-            //printf("\n");
         }
         else if (choice == 3)
         {
             if (nList)
                 freeList(nList);
 
-            copy(pList, &nList); //passing reference of nList as it is not returning anything
-            // Look at the list.
+            copy(pList, &nList);
             printf("Items in NEW linked list: ");
             print(nList);
-            // printf("\n");
         }
         else
         {
