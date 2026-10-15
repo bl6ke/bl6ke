@@ -1,5 +1,4 @@
  //Stack implementation using array skeleton code
- //Lab 6: Parenthesis checker and Infix to Postfix
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -43,7 +42,6 @@ int main() {
     if (fgets(exp, SIZE, stdin) == NULL)
         return 0;
 
-    // Remove the trailing newline left by fgets.
     exp[strcspn(exp, "\n")] = '\0';
 
     printf("Your input expression: %s\n", exp);
@@ -61,7 +59,6 @@ int main() {
     return 0;
 }
 
-// Returns 1 if the parentheses in exp are balanced, 0 otherwise.
 int checkBalance(char exp[]) {
     struct stack s;
     initialize(&s);
@@ -70,12 +67,10 @@ int checkBalance(char exp[]) {
     {
         char ch = exp[i];
 
-        // Opening symbol: push it.
         if (ch == '(' || ch == '[' || ch == '{')
         {
             push(&s, ch);
         }
-        // Closing symbol: must match the most recent opening symbol.
         else if (ch == ')' || ch == ']' || ch == '}')
         {
             if (empty(&s))
@@ -95,7 +90,6 @@ int checkBalance(char exp[]) {
         }
     }
 
-    // Anything left on the stack was never closed.
     if (!empty(&s))
     {
         printf("INVALID for %c!!!\n", peek(&s));
@@ -105,7 +99,6 @@ int checkBalance(char exp[]) {
     return 1;
 }
 
-// Returns the priority of a given operator.
 int priority(char ch) {
     switch (ch)
     {
@@ -119,31 +112,27 @@ int priority(char ch) {
         case '-':
             return 1;
     }
-    // Parentheses and anything else get the lowest priority.
     return 0;
 }
 
-// Returns 1 if ch is an operator, 0 otherwise.
 int isOperator(char ch) {
     return (ch == '+' || ch == '-' || ch == '*' ||
             ch == '/' || ch == '%' || ch == '^');
 }
 
-// Returns 1 if ch1 is a parenthesis, 0 otherwise.
 int isParentheses(char ch1) {
     return (ch1 == '(' || ch1 == ')' ||
             ch1 == '[' || ch1 == ']' ||
             ch1 == '{' || ch1 == '}');
 }
 
-// Converts a (balanced) infix expression into postfix.
-// The returned string is dynamically allocated; the caller must free it.
+// The returned string is dynamically allocated so the caller must free it
 char *infixToPostfix(char infix[]) {
     struct stack s;
     initialize(&s);
 
     int len = strlen(infix);
-    // Each character may be followed by a space, plus the null terminator.
+    // Each character may be followed by a space, plus the null terminator
     char *postfix = malloc(2 * len + 1);
     int j = 0;
 
@@ -151,11 +140,9 @@ char *infixToPostfix(char infix[]) {
     {
         char ch = infix[i];
 
-        // Skip spaces in the input.
         if (ch == ' ')
             continue;
 
-        // Operand (number or variable): copy all of it, then add a space.
         if (isalnum(ch))
         {
             while (i < len && isalnum(infix[i]))
@@ -164,14 +151,12 @@ char *infixToPostfix(char infix[]) {
                 i++;
             }
             postfix[j++] = ' ';
-            i--; // the for loop will move past the last digit
+            i--; // the for loop will move past the last character
         }
-        // Opening parenthesis: push it.
         else if (ch == '(' || ch == '[' || ch == '{')
         {
             push(&s, ch);
         }
-        // Closing parenthesis: pop until the matching opening one.
         else if (isParentheses(ch))
         {
             while (!empty(&s) && !isParentheses(peek(&s)))
@@ -181,8 +166,7 @@ char *infixToPostfix(char infix[]) {
             }
             pop(&s); // discard the opening parenthesis
         }
-        // Operator: pop operators with higher or equal priority first.
-        // '^' is right associative, so only pop strictly higher ones for it.
+        // '^' is right associative, so only pop strictly higher priority operators for it
         else if (isOperator(ch))
         {
             while (!empty(&s) && isOperator(peek(&s)) &&
@@ -196,7 +180,6 @@ char *infixToPostfix(char infix[]) {
         }
     }
 
-    // Pop all remaining operators.
     while (!empty(&s))
     {
         postfix[j++] = pop(&s);
