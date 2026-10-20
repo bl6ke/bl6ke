@@ -1,3 +1,6 @@
+// Blake Dickison
+// 5718571
+
 // X-Stack1
 #include <stdio.h>
 #include <stdlib.h>
