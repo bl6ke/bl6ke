@@ -1,0 +1,81 @@
+
+sorting 10000 values takes 48 milli seconds for Selection sort
+
+sorting 10000 values takes 138 milli seconds for Bubble sort
+
+sorting 10000 values takes 32 milli seconds for Insertion sort
+
+sorting 10000 values takes 1 milli seconds for Merge sort
+
+sorting 10000 values takes 0 milli seconds for Merge Insertion sort
+
+sorting 10000 values takes 1 milli seconds for Quick sort
+
+sorting 20000 values takes 185 milli seconds for Selection sort
+
+sorting 20000 values takes 816 milli seconds for Bubble sort
+
+sorting 20000 values takes 178 milli seconds for Insertion sort
+
+sorting 20000 values takes 4 milli seconds for Merge sort
+
+sorting 20000 values takes 3 milli seconds for Merge Insertion sort
+
+sorting 20000 values takes 2 milli seconds for Quick sort
+
+sorting 30000 values takes 463 milli seconds for Selection sort
+
+sorting 30000 values takes 2024 milli seconds for Bubble sort
+
+sorting 30000 values takes 335 milli seconds for Insertion sort
+
+sorting 30000 values takes 5 milli seconds for Merge sort
+
+sorting 30000 values takes 3 milli seconds for Merge Insertion sort
+
+sorting 30000 values takes 4 milli seconds for Quick sort
+
+sorting 40000 values takes 829 milli seconds for Selection sort
+
+sorting 40000 values takes 3437 milli seconds for Bubble sort
+
+sorting 40000 values takes 575 milli seconds for Insertion sort
+
+sorting 40000 values takes 6 milli seconds for Merge sort
+
+sorting 40000 values takes 4 milli seconds for Merge Insertion sort
+
+sorting 40000 values takes 4 milli seconds for Quick sort
+
+sorting 50000 values takes 1339 milli seconds for Selection sort
+
+sorting 50000 values takes 5755 milli seconds for Bubble sort
+
+sorting 50000 values takes 952 milli seconds for Insertion sort
+
+sorting 50000 values takes 8 milli seconds for Merge sort
+
+sorting 50000 values takes 5 milli seconds for Merge Insertion sort
+
+sorting 50000 values takes 6 milli seconds for Quick sort
+
+sorting 100000 values takes 5095 milli seconds for Selection sort
+
+sorting 100000 values takes 23900 milli seconds for Bubble sort
+
+sorting 100000 values takes 3651 milli seconds for Insertion sort
+
+sorting 100000 values takes 16 milli seconds for Merge sort
+
+sorting 100000 values takes 12 milli seconds for Merge Insertion sort
+
+sorting 100000 values takes 12 milli seconds for Quick sort
+
+
+Data Size	Selection	Bubble	Insertion	Merge	Merge Insertion	Quick
+10000	48	138	32	1	0	1
+20000	185	816	178	4	3	2
+30000	463	2024	335	5	3	4
+40000	829	3437	575	6	4	4
+50000	1339	5755	952	8	5	6
+100000	5095	23900	3651	16	12	12
